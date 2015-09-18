@@ -9,13 +9,12 @@ html, body {
 
 .row2 {
 	padding-top: 50px;
-	background-color: #b3b3b3;	
+	background-color: #dddddd;	
 }
 
 .img-block {
 	padding: 20px;
 	margin: 10px;
-	border: 1px solid gray;
 	width: 200px;
 	height: 250px;
 	display: inline-block;

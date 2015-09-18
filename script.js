@@ -1,5 +1,4 @@
 window.onload = function() {
-  event.preventDefault();
 
   // array to store photo data
   var photos = [
@@ -31,5 +30,26 @@ window.onload = function() {
 		// append the template data to div with gallery id
 		gallery.appendChild(template);
   }
+
+  window.instagram_response = function(data) {
+		console.log(data);
+  };
+
+
+  document.getElementById('tagSubmit').addEventListener('click', function(event) {
+		event.preventDefault();
+
+		// var http = new XMLHttpRequest();
+		var clientId = "8ee7de05d3674afbaaafe5a26648b705";
+		var tagInput = document.getElementById('tagInput').value;
+		var url = "https://api.instagram.com/v1/tags/" + tagInput + "/media/recent?client_id="+ clientId + "&callback=instagram_response";
+
+		var script = document.createElement('script');
+		script.type = "text/javascript";
+		script.src = url;
+		document.body.appendChild(script);
+
+  });
+
 
 };
