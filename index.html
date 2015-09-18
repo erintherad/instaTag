@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- custom stylesheet -->
+	<link rel="stylesheet" href="style.css">
+	<title>InstaTag</title>
+</head>
+<body>
+	<header>
+		<div class="container-fluid">
+			<div class="row">
+				<h1>InstaTag&nbsp;</h1>
+				<h3>Finding all of your Instagram tag needs</h3>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="row1">
+			<div>
+				<label for="search">Search for a tag:</label>
+				<input type="text" placeholder="Donuts, Daisies, Drake" id="tagInput">
+				<button type="submit" id="tagSubmit">Submit</button>
+			</div>
+		</div>
+		<div class="row2" id="gallery"></div>
+
+		<template id="photoTemplate">
+			<div class="img-block">
+				<a href="javascript:void(0)"><img class="imgSrc"></a>
+				<h4 class="title"></h4>
+			</div>
+		</template>
+	<!-- Custom js sheet -->
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
