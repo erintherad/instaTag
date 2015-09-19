@@ -48,17 +48,6 @@ var anchorClicked = function(event) {
 	var anchor = event.target;
 	// getting data-index on image
 	var photoIndex = parseInt(anchor.getAttribute('data-index'), 10);
-	// set photoIndex for left and right anchor on modal
-	leftModalButton.setAttribute('data-index', photoIndex - 1);
-	rightModalButton.setAttribute('data-index', photoIndex + 1);
-	if (photoIndex === 0) {
-		leftModalButton.style.visibility = "hidden";
-	} else if (photoIndex === 19) {
-		rightModalButton.style.visibility = "hidden";
-	} else {
-		leftModalButton.style.visibility = "inherit";
-		rightModalButton.style.visibility = "inherit";
-	}
 	// show image at index
 	showModalImage(photoIndex);
 	// setting the modalOverlay visibility to visible
@@ -66,6 +55,17 @@ var anchorClicked = function(event) {
 };
 
 var showModalImage = function(index) {
+	// set photoIndex for left and right anchor on modal
+	leftModalButton.setAttribute('data-index', index - 1);
+	rightModalButton.setAttribute('data-index', index + 1);
+	if (index === 0) {
+		leftModalButton.style.visibility = "hidden";
+	} else if (index === 19) {
+		rightModalButton.style.visibility = "hidden";
+	} else {
+		leftModalButton.style.visibility = "inherit";
+		rightModalButton.style.visibility = "inherit";
+	}
 	// getting photos standard_resolution url
 	var displayPhoto = photos[index].images.standard_resolution.url;
 	// getting photos caption
@@ -119,6 +119,37 @@ window.onload = function() {
 
 	leftModalButton.addEventListener('click', anchorClicked);
 	rightModalButton.addEventListener('click', anchorClicked);
+
+	// add keyboard event listeners
+	document.addEventListener('keydown', function(event) {
+		if(event.target === document.getElementById('tagInput')) {
+			// we want left and right keys to work in the form
+			return;
+		}
+
+		var index;
+		// left
+		if(event.keyCode == 37) {
+			event.preventDefault();
+			index = parseInt(leftModalButton.getAttribute('data-index'), 10);
+			if(index >= 0) {
+				showModalImage(index);
+			}
+		}
+		// right
+		else if(event.keyCode == 39) {
+			event.preventDefault();
+			index = parseInt(rightModalButton.getAttribute('data-index'), 10);
+			if(index < 20) {
+				showModalImage(index);
+			}
+		}
+		// escape
+		else if(event.keyCode == 27) {
+			event.preventDefault();
+			modalOverlay.style.visibility = 'hidden';
+		}
+	});
 };
 
 
