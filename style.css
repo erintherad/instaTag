@@ -15,8 +15,9 @@ html, body {
 .img-block {
 	padding: 20px;
 	margin: 10px;
-	width: 200px;
-	height: 250px;
+	width: 400px;
+	height: 450px;
 	display: inline-block;
 	background-color: white;
+	font-size: 8pt;
 }
