@@ -6,6 +6,8 @@ var instagram_response = function(data) {
 		gallery.removeChild(gallery.lastChild);
 	}
 
+	document.getElementById('loadingMessage').style.display = "none";
+
 	photos = data.data;
 
 	var errorMessage = document.getElementById('errorMessage');
@@ -109,6 +111,9 @@ window.onload = function() {
 		var script = document.createElement('script');
 		script.type = "text/javascript";
 		script.src = url;
+
+		document.getElementById('loadingMessage').style.display = "block";
+
 		document.body.appendChild(script);
 
 		document.getElementById('tagInput').value = "";
