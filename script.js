@@ -2,6 +2,8 @@ window.onload = function() {
 	// access to div where photos will be appended
 	var gallery = document.getElementById('gallery');
 	var photos = [];
+	// getting context of modalOverlay
+	var modalOverlay = document.getElementsByClassName('modalOverlay')[0];
 
 	document.getElementById('searchForm').addEventListener('submit', function(event) {
 		event.preventDefault();
@@ -17,6 +19,21 @@ window.onload = function() {
 		document.body.appendChild(script);
 
 		document.getElementById('tagInput').value = "";
+	});
+
+	var closeModal = document.getElementById('closeButton');
+	closeModal.addEventListener('click', function(event) {
+		// setting the modalOverlay visibility to hidden
+		modalOverlay.style.visibility = 'hidden';
+	});
+
+	modalOverlay.addEventListener('click', function(event) {
+		// do not hide modal unless overlay was clicked
+		// (we could have clicked on the image or the text, etc)
+		if(event.target == modalOverlay) {
+			// setting the modalOverlay visibility to hidden
+			modalOverlay.style.visibility = 'hidden';
+		}
 	});
 
 	window.instagram_response = function(data) {
@@ -65,13 +82,11 @@ window.onload = function() {
 		document.getElementById('modalTitle').innerText = displayTitle;
 		// setting the image to the modalImg
 		document.getElementById('modalImg').src = displayPhoto;
-		// getting context of modalOverlay
-		var modalOverlay = document.getElementsByClassName('modalOverlay')[0];
+
 		// setting the modalOverlay visibility to visible
 		modalOverlay.style.visibility = 'visible';
 	};
 };
-
 
 
 
