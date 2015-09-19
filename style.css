@@ -7,9 +7,8 @@ html, body {
 	padding-bottom: 20px;
 }
 
-.row2 {
-	padding-top: 50px;
-	background-color: #dddddd;	
+.row2 {	
+	background-color: gray;
 }
 
 .img-block {
@@ -17,7 +16,32 @@ html, body {
 	margin: 10px;
 	width: 400px;
 	height: 450px;
-	display: inline-block;
 	background-color: white;
-	font-size: 8pt;
+	float: left;
+	text-align: left;
+}
+
+.modalOverlay {
+	visibility: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width:100%;
+	height:100%;
+	text-align:center;
+	z-index: 1000;
+	background-color: rgba(0, 0, 0, 0.8);
+	padding-top: 50px;
+}
+
+.modal {
+	background-color: white;
+	width: 50%;
+	padding-top: 50px;
+	margin: 0 auto;
+}
+
+.modal img {
+	width: 80%;
+	height: 80%;
 }
