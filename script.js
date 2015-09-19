@@ -8,6 +8,14 @@ var instagram_response = function(data) {
 
 	photos = data.data;
 
+	var errorMessage = document.getElementById('errorMessage');
+	if (photos.length === 0) {
+		errorMessage.style.display = "block";
+		return;
+	} else {
+		errorMessage.style.display = "none";
+	}
+
 	for(var i = 0; i < photos.length; i++) {
 		// access to the photo-template created in html
 		var template = document.getElementById('photoTemplate').cloneNode(true);
