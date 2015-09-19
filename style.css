@@ -51,6 +51,20 @@ html, body {
 	right: 5px;
 }
 
+#leftModalButton {
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	font-size: 40px;
+}
+
+#rightModalButton {
+	position: absolute;
+	top: 50%;
+	right: 20%;
+	font-size: 40px;
+}
+
 .modal img {
 	width: 80%;
 	height: 80%;

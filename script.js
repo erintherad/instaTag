@@ -73,18 +73,38 @@ window.onload = function() {
 		// getting anchor
 		var anchor = event.target;
 		// getting data-index on image
-		var photoIndex = anchor.getAttribute('data-index');
+		var photoIndex = parseInt(anchor.getAttribute('data-index'), 10);
+		// set photoIndex for left and right anchor on modal
+		leftModalButton.setAttribute('data-index', photoIndex - 1);
+		rightModalButton.setAttribute('data-index', photoIndex + 1);
+		if (photoIndex === 0) {
+			leftModalButton.style.visibility = "hidden";
+		} else if (photoIndex === 19) {
+			rightModalButton.style.visibility = "hidden";
+		} else {
+			leftModalButton.style.visibility = "inherit";
+			rightModalButton.style.visibility = "inherit";
+		}
+		// show image at index
+		showModalImage(photoIndex);
+		// setting the modalOverlay visibility to visible
+		modalOverlay.style.visibility = 'visible';
+	};
+
+	var leftModalButton = document.getElementById('leftModalButton');
+	leftModalButton.addEventListener('click', anchorClicked);
+	var rightModalButton = document.getElementById('rightModalButton');
+	rightModalButton.addEventListener('click', anchorClicked);
+
+	window.showModalImage = function(index) {
 		// getting photos standard_resolution url
-		var displayPhoto = photos[photoIndex].images.standard_resolution.url;
+		var displayPhoto = photos[index].images.standard_resolution.url;
 		// getting photos caption
-		var displayTitle = photos[photoIndex].caption.text;
+		var displayTitle = photos[index].caption.text;
 		// setting the caption to modalTitle
 		document.getElementById('modalTitle').innerText = displayTitle;
 		// setting the image to the modalImg
 		document.getElementById('modalImg').src = displayPhoto;
-
-		// setting the modalOverlay visibility to visible
-		modalOverlay.style.visibility = 'visible';
 	};
 };
 
