@@ -10,7 +10,9 @@ var instagram_response = function(data) {
 
 	for(var i = 0; i < photos.length; i++) {
 		// access to the photo-template created in html
-		var template = document.getElementById('photoTemplate').content.cloneNode(true);
+		var template = document.getElementById('photoTemplate').cloneNode(true);
+		// <template> tag is not supported by IE; clear ID of "template" div
+		template.id = '';
 		// append title data to title id in template
 		template.querySelector('.title').innerText = photos[i].caption.text;
 		// append imgSrc data to imgSrc id in template
