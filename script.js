@@ -99,8 +99,8 @@ window.onload = function() {
 		document.getElementById('tagInput').value = "";
 	});
 
-	var closeModal = document.getElementById('closeButton');
-	closeModal.addEventListener('click', function(event) {
+	var closeModalButton = document.getElementById('closeButton');
+	closeModalButton.addEventListener('click', function(event) {
 		// setting the modalOverlay visibility to hidden
 		modalOverlay.style.visibility = 'hidden';
 	});
