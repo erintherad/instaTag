@@ -3,22 +3,32 @@ html, body {
 	height: 100%;
 	text-align: center;
 }
-.row1 {
+
+#searchForm {
 	padding-bottom: 20px;
 }
 
-.row2 {	
-	background-color: gray;
+#gallery {	
+	background-color: red;
+	width: 80%;
+	margin: 0 auto;
 }
 
 .img-block {
 	padding: 20px;
 	margin: 10px;
-	width: 400px;
+	width: 320px;
 	height: 450px;
 	background-color: white;
 	float: left;
 	text-align: left;
+}
+
+.title {
+	height: 5em;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 0 15px 10px;
 }
 
 .modalOverlay {
