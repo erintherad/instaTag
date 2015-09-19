@@ -79,6 +79,10 @@ html, body {
 	font-size: 40px;
 }
 
+#loadingImg {
+	display: none;
+}
+
 .modal img {
 	width: 80%;
 	height: 80%;

@@ -72,8 +72,23 @@ var showModalImage = function(index) {
 	var displayTitle = photos[index].caption.text;
 	// setting the caption to modalTitle
 	document.getElementById('modalTitle').innerText = displayTitle;
+
 	// setting the image to the modalImg
-	document.getElementById('modalImg').src = displayPhoto;
+	var loadingImage = document.getElementById('loadingImg');
+	var modalImage = document.getElementById('modalImg');
+
+	// show loading image, hide modal image
+	loadingImage.style.display = 'inline-block';
+	modalImage.style.display = 'none';
+
+	modalImage.onload = function() {
+		// hide loading image, show modal image after it loads
+		loadingImage.style.display = 'none';
+		modalImage.style.display = 'inline-block';
+	};
+
+	// set source of modal image
+	modalImage.src = displayPhoto;
 };
 
 window.onload = function() {
