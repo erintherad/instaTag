@@ -105,9 +105,10 @@ html, body {
 
 #loadingImg {
 	display: none;
+	margin: 0 auto;
 }
 
-.modal img {
+.modal #modalImg {
 	width: 80%;
 	height: 80%;
 }
