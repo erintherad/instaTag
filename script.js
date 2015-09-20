@@ -19,7 +19,7 @@ var instagram_response = function(data) {
 		// <template> tag is not supported by IE; clear ID of "template" div
 		template.id = '';
 		// append title data to title id in template
-		template.querySelector('.title').innerText = photos[i].caption.text;
+		template.querySelector('.title').textContent = photos[i].caption.text;
 		// append imgSrc data to imgSrc id in template
 		template.querySelector('.imgSrc').src = photos[i].images.low_resolution.url;
 		// append data-index to anchor in template
@@ -68,7 +68,7 @@ var showModalImage = function(index) {
 	// getting photos caption
 	var displayTitle = photos[index].caption.text;
 	// setting the caption to modalTitle
-	document.getElementById('modalTitle').innerText = displayTitle;
+	document.getElementById('modalTitle').textContent = displayTitle;
 
 	// setting the image to the modalImg
 	var loadingImage = document.getElementById('loadingImg');
