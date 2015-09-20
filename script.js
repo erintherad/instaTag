@@ -1,11 +1,6 @@
 var photos, gallery, modalOverlay, leftModalButton, rightModalButton;
 
 var instagram_response = function(data) {
-	// clear the gallery
-	while (gallery.hasChildNodes()) {
-		gallery.removeChild(gallery.lastChild);
-	}
-
 	document.getElementById('loadingMessage').style.display = "none";
 
 	photos = data.data;
@@ -103,9 +98,20 @@ window.onload = function() {
 	document.getElementById('searchForm').addEventListener('submit', function(event) {
 		event.preventDefault();
 
-		// var http = new XMLHttpRequest();
+		// clear the gallery
+		while (gallery.hasChildNodes()) {
+			gallery.removeChild(gallery.lastChild);
+		}
+
 		var clientId = "8ee7de05d3674afbaaafe5a26648b705";
 		var tagInput = document.getElementById('tagInput').value.replace(/\s+/, '');
+		var errorMessage = document.getElementById('errorMessage');
+		if (tagInput === '') {
+			errorMessage.style.display = "block";
+			return;
+		} else {
+			errorMessage.style.display = "none";
+		}
 		var url = "https://api.instagram.com/v1/tags/" + tagInput + "/media/recent?client_id="+ clientId + "&callback=instagram_response";
 
 		var script = document.createElement('script');
@@ -171,16 +177,3 @@ window.onload = function() {
 		}
 	});
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
