@@ -18,6 +18,10 @@ html, body {
 	display: none;
 }
 
+#photoTemplate {
+	display: none;
+}
+
 .img-block {
 	padding: 20px;
 	margin: 10px;
