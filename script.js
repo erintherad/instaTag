@@ -19,7 +19,19 @@ var instagram_response = function(data) {
 		// <template> tag is not supported by IE; clear ID of "template" div
 		template.id = '';
 		// append title data to title id in template
-		template.querySelector('.title').textContent = photos[i].caption.text;
+		// template.querySelector('.title').textContent = photos[i].caption.text;
+
+		var title = photos[i].caption.text;
+		var words = title.split(' ');
+		for(var j = 0; j < words.length; j++) {
+			var word = words[j];
+			if(word[0] == "#") {
+				var tag = '<span class="hashtag">' + word + '</span>';
+				title = title.replace(word, tag);
+			}
+		}
+		template.querySelector('.title').innerHTML = title;
+
 		// append imgSrc data to imgSrc id in template
 		template.querySelector('.imgSrc').src = photos[i].images.low_resolution.url;
 		// append data-index to anchor in template

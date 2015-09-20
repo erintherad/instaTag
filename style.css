@@ -39,6 +39,10 @@ html, body {
 	padding: 0 15px 10px;
 }
 
+.hashtag {
+	color: red;
+}
+
 .modalOverlay {
 	visibility: hidden;
 	position: fixed;
