@@ -116,7 +116,7 @@ window.onload = function() {
 		}
 
 		var clientId = "8ee7de05d3674afbaaafe5a26648b705";
-		var tagInput = document.getElementById('tagInput').value.replace(/\s+/, '');
+		var tagInput = document.getElementById('tagInput').value.replace(/\s+/g, '');
 		var errorMessage = document.getElementById('errorMessage');
 		if (tagInput === '') {
 			errorMessage.style.display = "block";
