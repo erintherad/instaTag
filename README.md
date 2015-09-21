@@ -1,5 +1,7 @@
 # InstaTag
 
+![alt tag](https://github.com/erintherad/instaTag/img/screenshot.png)
+
 An application that allows users to search for photographs using Instagram's tags.  Users can click on individual images bringing them into a lightbox modal for viewing.  Users can navigate through the images clicking the forward and back arrows or by using their keyboard arrows.
 
 This app was created using only JavaScript.
