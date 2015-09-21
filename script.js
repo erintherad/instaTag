@@ -1,6 +1,7 @@
 var photos, gallery, modalOverlay, leftModalButton, rightModalButton;
 
 var instagram_response = function(data) {
+	// hide error message
 	document.getElementById('loadingMessage').style.display = "none";
 
 	photos = data.data;
@@ -18,7 +19,7 @@ var instagram_response = function(data) {
 		var template = document.getElementById('photoTemplate').cloneNode(true);
 		// <template> tag is not supported by IE; clear ID of "template" div
 		template.id = '';
-		
+
 		// append title data to title id in template
 		var title = photos[i].caption.text;
 		template.querySelector('.title').innerHTML = title;
@@ -35,8 +36,9 @@ var instagram_response = function(data) {
 };
 
 var addLightboxEventListeners = function() {
+	// getting all lightboxAnchor
 	var anchors = document.getElementsByClassName('lightboxAnchor');
-
+	// iterating through and adding an event listener on click
 	for(var i = 0; i < anchors.length; i++) {
 		anchors[i].addEventListener('click', anchorClicked);
 	}
@@ -59,6 +61,7 @@ var showModalImage = function(index) {
 	// set photoIndex for left and right anchor on modal
 	leftModalButton.setAttribute('data-index', index - 1);
 	rightModalButton.setAttribute('data-index', index + 1);
+	// logic for far left and last img in array for anchors
 	if (index === 0) {
 		leftModalButton.style.visibility = "hidden";
 	} else if (index === 19) {
@@ -106,9 +109,11 @@ window.onload = function() {
 		while (gallery.hasChildNodes()) {
 			gallery.removeChild(gallery.lastChild);
 		}
-
+		// Instagram public key
 		var clientId = "8ee7de05d3674afbaaafe5a26648b705";
+		// Grabbing form input, replacing spaces
 		var tagInput = document.getElementById('tagInput').value.replace(/\s+/g, '');
+		// error message logic
 		var errorMessage = document.getElementById('errorMessage');
 		if (tagInput === '') {
 			errorMessage.style.display = "block";
@@ -116,16 +121,17 @@ window.onload = function() {
 		} else {
 			errorMessage.style.display = "none";
 		}
+		// grabbing api url
 		var url = "https://api.instagram.com/v1/tags/" + tagInput + "/media/recent?client_id="+ clientId + "&callback=instagram_response";
-
+		// creating a script in html to make call to api
 		var script = document.createElement('script');
 		script.type = "text/javascript";
 		script.src = url;
-
+		// show message
 		document.getElementById('loadingMessage').style.display = "block";
-
+		// appending script to html
 		document.body.appendChild(script);
-
+		// clearing input value
 		document.getElementById('tagInput').value = "";
 	});
 

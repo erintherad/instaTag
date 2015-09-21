@@ -1,3 +1,6 @@
+ /*----------------------------
+    GLOBAL STYLES
+-----------------------------*/
 @font-face {
 	font-family: logo;
 	src: url(/fonts/lobster.otf);
@@ -16,7 +19,27 @@ html, body {
 	color: #353127;
 	background-color: #fff9ed;
 }
+.btn {
+    color: #353127;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 1px 7px #e0dace;
+}
 
+.btn:hover,
+.btn:focus,
+.btn:active {
+    color: #fff;
+    background-color: #353127;;
+}
+
+ /*----------------------------
+    HEADER & FORM STYLES
+-----------------------------*/
 #logo {
 	position: relative;
 	font-family: logo;
@@ -43,22 +66,11 @@ html, body {
 	border: 1px solid #e0dace;
 	border-radius: 5px;
 }
-.btn {
-    color: #353127;
-    padding: 8px;
-    border-radius: 5px;
-    background-color: white;
-    font-family: inherit;
-    border: none;
-    cursor: pointer;
-    box-shadow: 2px 1px 7px #e0dace;
-}
-
-.btn:hover,
-.btn:focus,
-.btn:active {
-    color: #fff;
-    background-color: #353127;;
+ /*----------------------------
+    GALLERY STYLES
+-----------------------------*/
+.message {
+	display: none;
 }
 
 #gallery {
@@ -67,10 +79,9 @@ html, body {
 	text-align: center;
 }
 
-.message {
-	display: none;
-}
-
+ /*----------------------------
+    PHOTO TEMPLATE STYLES
+-----------------------------*/
 #photoTemplate {
 	display: none;
 }
@@ -99,6 +110,9 @@ html, body {
 	padding: 0 15px 10px;
 }
 
+ /*----------------------------
+    LIGHTBOX STYLES
+-----------------------------*/
 .modalOverlay {
 	visibility: hidden;
 	position: fixed;
