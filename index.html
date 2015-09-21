@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- bootstrap and font awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!-- custom stylesheet -->
 	<link rel="stylesheet" href="style.css">
 	<title>InstaTag</title>
@@ -11,14 +13,14 @@
 	<header>
 		<div>
 			<h1 id="logo">InstaTag</h1>
-			<h3>Finding all of your Instagram tag needs</h3>
+			<h3 id="tagline">For all of your Instagram tag needs</h3>
 		</div>
 	</header>
 
 	<form id="searchForm">
 		<label for="search">Search for a tag:</label>
 		<input type="text" placeholder="Donuts, Daisies, Drake" id="tagInput">
-		<button type="submit">Submit</button>
+		<button type="submit" class="btn">Submit</button>
 	</form>
 
 	
@@ -29,10 +31,10 @@
 	<div id="gallery"></div>
 
 	<div class="modalOverlay">
-		<a href="javascript:void(0)" id="leftModalButton">&lsaquo;</a>
-		<a href="javascript:void(0)" id="rightModalButton">&rsaquo;</a>
 		<div class="modal">
-			<a href="javascript:void(0)" id="closeButton">X</a>
+			<a href="javascript:void(0)" id="leftModalButton" class="fa fa-caret-left"></a>
+			<a href="javascript:void(0)" id="rightModalButton" class="fa fa-caret-right"></a>
+			<a href="javascript:void(0)" id="closeButton" class="fa fa-times"></a>
 			<img id="loadingImg" src="/img/loading.gif">
 			<img id="modalImg">
 			<p id="modalTitle" class="title"></p>

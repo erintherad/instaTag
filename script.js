@@ -22,14 +22,7 @@ var instagram_response = function(data) {
 		// template.querySelector('.title').textContent = photos[i].caption.text;
 
 		var title = photos[i].caption.text;
-		var words = title.split(' ');
-		for(var j = 0; j < words.length; j++) {
-			var word = words[j];
-			if(word[0] == "#") {
-				var tag = '<span class="hashtag">' + word + '</span>';
-				title = title.replace(word, tag);
-			}
-		}
+
 		template.querySelector('.title').innerHTML = title;
 
 		// append imgSrc data to imgSrc id in template
@@ -55,6 +48,7 @@ var anchorClicked = function(event) {
 	event.preventDefault();
 	// getting anchor
 	var anchor = event.target;
+	console.log(anchor);
 	// getting data-index on image
 	var photoIndex = parseInt(anchor.getAttribute('data-index'), 10);
 	// show image at index
