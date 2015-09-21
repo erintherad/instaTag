@@ -18,11 +18,9 @@ var instagram_response = function(data) {
 		var template = document.getElementById('photoTemplate').cloneNode(true);
 		// <template> tag is not supported by IE; clear ID of "template" div
 		template.id = '';
+		
 		// append title data to title id in template
-		// template.querySelector('.title').textContent = photos[i].caption.text;
-
 		var title = photos[i].caption.text;
-
 		template.querySelector('.title').innerHTML = title;
 
 		// append imgSrc data to imgSrc id in template
